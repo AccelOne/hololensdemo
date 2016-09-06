@@ -1,0 +1,19 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TextToSpeechTest.cs">
+    <Files>
+      <File FileName="Assets\Scripts\WorldController.cs" Line="1" Column="1" />
+      <File FileName="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PlaceableObject.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BlueCharController.cs" Line="69" Column="41" />
+      <File FileName="D:\Documents\Unity Old Projects\PROYECTOS OLVIDADOS\Liquid Shadow\Assets\LiquidShadow\Game\WorldEngine\AI\BasicEnemyAI.cs" Line="1" Column="1" />
+      <File FileName="Assets\HoloToolkit\Input\Scripts\GestureManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BlueCharacterConsts.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\TextToSpeechTest.cs" Line="53" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
