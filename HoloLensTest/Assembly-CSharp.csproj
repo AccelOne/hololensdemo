@@ -46,6 +46,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\ConsoleAR\ConsoleWindowAR.cs" />
+     <Compile Include="Assets\DemoCharacter\Scripts\BlueCharController.cs" />
+     <Compile Include="Assets\DemoCharacter\Scripts\BlueCharacterConsts.cs" />
+     <Compile Include="Assets\DemoCharacter\Scripts\PlaceableObject.cs" />
+     <Compile Include="Assets\DemoCharacter\Scripts\TextToSpeechTest.cs" />
+     <Compile Include="Assets\DemoCharacter\Scripts\WorldController.cs" />
+     <Compile Include="Assets\DemoGame\3DModels\C&amp;C_Pack\Goblin_rouge\Script\Goblin_ro_ctrl.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\GameBoard.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\GameplayController.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\MetroHandleRef.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\Reflection\ReflectionExtensions.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\Reflection\TypeUtils.cs" />
@@ -109,12 +117,8 @@
      <Compile Include="Assets\HoloToolkit\Utilities\Scripts\TextToSpeechManager.cs" />
      <Compile Include="Assets\HoloToolkit\Utilities\Scripts\VectorExtensions.cs" />
      <Compile Include="Assets\HoloToolkit\Utilities\Tests\TextToSpeechManagerTest.cs" />
-     <Compile Include="Assets\Scripts\BlueCharController.cs" />
-     <Compile Include="Assets\Scripts\BlueCharacterConsts.cs" />
-     <Compile Include="Assets\Scripts\PlaceableObject.cs" />
-     <Compile Include="Assets\Scripts\TextToSpeechTest.cs" />
-     <Compile Include="Assets\Scripts\WorldController.cs" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurable.shader" />
+     <None Include="Assets\DemoGame\3DModels\C&amp;C_Pack\Goblin_rouge\readme.txt" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurable.cginc" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurableTransparent.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\LambertianConfigurable.cginc" />
@@ -129,6 +133,7 @@
      <None Include="Assets\HoloToolkit\Utilities\Shaders\HoloToolkitCommon.cginc" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\VertexLitConfigurableTransparent.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\BlinnPhongConfigurable.cginc" />
+     <None Include="Assets\DemoGame\3DModels\WatchTower\ReadMe.txt" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\BlinnPhongConfigurable.shader" />
      <None Include="Assets\HoloToolkit\Utilities\Shaders\UnlitConfigurable.cginc" />
  <Reference Include="UnityEngine.UI">
