@@ -9,10 +9,37 @@ public class GameBoard : MonoBehaviour {
 
 	float height = 0;
 
+	//preset sizes
+	public void Small () {
+		scale = 0.1f;
+		transform.localScale = Vector3.one * scale;
+	}
+	public void Medium () {
+		scale = 1;
+		transform.localScale = Vector3.one * scale;
+	}
+	public void Big () {
+		scale = 3.0f;
+		transform.localScale = Vector3.one * scale;
+	}
+
+	//manual size
+	public void IncreaseSize () {
+		scale += 0.1f;
+		transform.localScale = Vector3.one * scale;
+	}
+	public void DecreaseSize () {
+		scale -= 0.1f;
+		if (scale <= 0.1f) {
+			scale = 0.1f;
+		}
+		transform.localScale = Vector3.one * scale;
+	}
+
+	//manual height
 	public void IncreaseHeight () {
 		height += 0.1f;
 	}
-
 	public void DecreaseHeight () {
 		height -= 0.1f;
 	}
