@@ -5,7 +5,7 @@ using HoloToolkit.Unity;
 public class GameBoard : MonoBehaviour {
 
 	public static float scale = 1;
-	public static bool placing = true;
+	public static bool placing = false;
 
 	float height = 0;
 

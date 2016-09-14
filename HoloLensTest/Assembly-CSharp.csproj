@@ -52,8 +52,12 @@
      <Compile Include="Assets\DemoCharacter\Scripts\TextToSpeechTest.cs" />
      <Compile Include="Assets\DemoCharacter\Scripts\WorldController.cs" />
      <Compile Include="Assets\DemoGame\3DModels\C&amp;C_Pack\Goblin_rouge\Script\Goblin_ro_ctrl.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\BarController.cs" />
      <Compile Include="Assets\DemoGame\Scripts\GameBoard.cs" />
      <Compile Include="Assets\DemoGame\Scripts\GameplayController.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\ResourceController.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\TowerController.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\UnitController.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\MetroHandleRef.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\Reflection\ReflectionExtensions.cs" />
      <Compile Include="Assets\HoloToolkit\CrossPlatform\Scripts\Reflection\TypeUtils.cs" />

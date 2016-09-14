@@ -1,16 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DemoGame\Scripts\GameBoard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\DemoGame\Scripts\ResourceController.cs">
     <Files>
-      <File FileName="Assets\HoloToolkit\SpatialMapping\Scripts\SpatialMappingManager.cs" Line="1" Column="1" />
-      <File FileName="D:\Documents\Unity Old Projects\PROYECTOS OLVIDADOS\Liquid Shadow\Assets\LiquidShadow\Game\WorldEngine\AI\BasicEnemyAI.cs" Line="1" Column="1" />
-      <File FileName="Assets\HoloToolkit\Input\Scripts\GestureManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\DemoGame\Scripts\GameBoard.cs" Line="39" Column="17" />
-      <File FileName="Assets\DemoCharacter\Scripts\PlaceableObject.cs" Line="1" Column="1" />
-      <File FileName="Assets\DemoCharacter\Scripts\BlueCharController.cs" Line="1" Column="1" />
-      <File FileName="Assets\DemoCharacter\Scripts\BlueCharacterConsts.cs" Line="1" Column="1" />
-      <File FileName="Assets\DemoCharacter\Scripts\WorldController.cs" Line="1" Column="1" />
-      <File FileName="Assets\DemoGame\Scripts\GameplayController.cs" Line="1" Column="1" />
+      <File FileName="Assets\DemoGame\Scripts\UnitController.cs" Line="119" Column="39" />
+      <File FileName="Assets\DemoGame\Scripts\TowerController.cs" Line="50" Column="22" />
+      <File FileName="Assets\DemoGame\Scripts\GameplayController.cs" Line="23" Column="3" />
+      <File FileName="Assets\DemoGame\Scripts\ResourceController.cs" Line="41" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
