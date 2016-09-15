@@ -12,25 +12,32 @@ public class GameplayController : MonoBehaviour {
 	public static GameObject[] resources;
 
 	public GameBoard gameBoard;
+	public TextMesh finalMessage;
 
 	// Use this for initialization
 	void Start () {
 		#if !UNITY_EDITOR
 		gameBoard.gameObject.SetActive (true);
 		gameBoard.OnMove ();
+		OnAutopilotOff ();
 		#endif
 
 		player = GameObject.FindWithTag("PlayerTower").GetComponent<TowerController>();
 		enemy = GameObject.FindWithTag("EnemyTower").GetComponent<TowerController>();
 		resources = GameObject.FindGameObjectsWithTag ("Resource");
+		finalMessage.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (enemy.health.current <= 0) {
-			//WIN
+			finalMessage.gameObject.SetActive (true);
+			finalMessage.text = "Victory!";
+			Won = true;
 		} else if (player.health.current <= 0) {
-			//LOSE
+			finalMessage.gameObject.SetActive (true);
+			finalMessage.text = "You Lost";
+			Lost = true;
 		}
 	}
 

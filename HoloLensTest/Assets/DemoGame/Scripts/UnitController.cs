@@ -17,13 +17,14 @@ public class UnitController : MonoBehaviour {
 	private float damage = 1;
 	private int order = -1;
 	private Animator anim;
-	private Transform mainTarget = null;
-	private Transform target = null;
+	public Transform mainTarget = null;
+	public Transform target = null;
 	private GameObject myTower;
 	private GameObject enemyTower;
+	private ResourceController curResource = null;
 
-	enum UnitState {none, idle, walk, attack, dead};
-	UnitState state = UnitState.idle;
+	public enum UnitState {none, idle, walk, attack, dead};
+	public UnitState state = UnitState.idle;
 
 	// Use this for initialization
 	void Start () {
@@ -45,7 +46,7 @@ public class UnitController : MonoBehaviour {
 			return;
 		}
 
-		//check for near enemies will target is the main target
+		//check for near enemies while target is the main target
 		if (target == mainTarget) {
 			target = CheckForEnemies ();
 		}
@@ -57,13 +58,14 @@ public class UnitController : MonoBehaviour {
 		}
 
 		//resource is empty, look for a new one
-		if ((target == null || !target.gameObject.activeSelf) && order == COLLECT) {
+		if (curResource != null && curResource.health <= 0 && order == COLLECT) {
 			state = UnitState.idle;
 			target = mainTarget = GetClosestResource ();
 		}
 
-		//no targets at all, go to idle
-		if (target == null || !target.gameObject.activeSelf) {
+		//no targets at all, go back to main target and idle
+		if (target == null) {
+			target = mainTarget;
 			state = UnitState.idle;
 			return;
 		}
@@ -125,7 +127,7 @@ public class UnitController : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	void SetOrder (int val) {
+	public void SetOrder (int val) {
 		GetTowers ();
 		order = val;
 		if (order == COLLECT) {
@@ -150,11 +152,17 @@ public class UnitController : MonoBehaviour {
 			ResourceController resource = potentialTarget.GetComponent<ResourceController> ();
 			Vector3 directionToTarget = potentialTarget.transform.position - currentPosition;
 			float dSqrToTarget = directionToTarget.sqrMagnitude;
-			if(dSqrToTarget < closestDistanceSqr && !resource.empty)
+			if(dSqrToTarget < closestDistanceSqr && resource.health > 0)
 			{
 				closestDistanceSqr = dSqrToTarget;
 				bestTarget = potentialTarget.transform;
 			}
+		}
+
+		if (bestTarget != null) {
+			curResource = bestTarget.gameObject.GetComponent<ResourceController> ();
+		} else {
+			curResource = null;
 		}
 
 		return bestTarget;
@@ -163,13 +171,23 @@ public class UnitController : MonoBehaviour {
 	Transform CheckForEnemies () {
 		int layer = enemy ? LayerMask.NameToLayer ("Knight") : LayerMask.NameToLayer ("Goblin");
 		LayerMask layerMask = 1 << layer;
-		//here we'll have all layers but the shifted
-		//layerMask = ~layerMask;
 
-		Transform bestTarget = null;
 		Collider[] cols = Physics.OverlapSphere (transform.position, viewRange * GameBoard.scale, layerMask);
-		if (cols.Length > 0) {
-			return cols [0].transform;
+		Transform bestTarget = null;
+		float closestDistanceSqr = Mathf.Infinity;
+		Vector3 currentPosition = transform.position;
+		foreach (Collider col in cols) {
+			Vector3 directionToTarget = col.transform.position - currentPosition;
+			float dSqrToTarget = directionToTarget.sqrMagnitude;
+			if(dSqrToTarget < closestDistanceSqr)
+			{
+				closestDistanceSqr = dSqrToTarget;
+				bestTarget = col.transform;
+			}
+		}
+
+		if (bestTarget != null) {
+			return bestTarget;
 		} else {
 			return mainTarget;
 		}

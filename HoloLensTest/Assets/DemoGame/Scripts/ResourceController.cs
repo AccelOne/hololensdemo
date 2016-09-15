@@ -3,8 +3,10 @@ using System.Collections;
 
 public class ResourceController : MonoBehaviour {
 
-	public bool empty = false;
-	private float health = 15;
+	public float health = 15;
+	public GameObject rock;
+	public GameObject destroyed;
+
 	private float timer = 0;
 
 	// Use this for initialization
@@ -14,13 +16,15 @@ public class ResourceController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (empty && GameplayController.CanUpdate()) {
-			gameObject.SetActive (false);
+		if (health <= 0 && GameplayController.CanUpdate()) {
+			rock.SetActive (false);
+			destroyed.SetActive (true);
 			timer += Time.deltaTime;
 			if(timer>=15){
-				gameObject.SetActive (true);
+				rock.SetActive (true);
+				destroyed.SetActive (false);
 				timer = 0;
-				empty = false;
+				health = 15;
 			}
 		}
 	}
@@ -31,13 +35,15 @@ public class ResourceController : MonoBehaviour {
 			health = Mathf.Clamp (health, 0, 15);
 
 			if (health <= 0) {
-				empty = true;
+				health = 0;
 				timer = 0;
 			}
 		}
 	}
 
 	void ExtractResource (GameObject tower) {
-		tower.SendMessage("ModifyResources",2);
+		if (GameplayController.CanUpdate () && health > 0) {
+			tower.SendMessage ("ModifyResources", 2);
+		}
 	}
 }
