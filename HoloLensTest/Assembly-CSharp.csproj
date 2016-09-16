@@ -63,6 +63,7 @@
      <Compile Include="Assets\DemoGame\ParticlesHelper\ParticleScaling.cs" />
      <Compile Include="Assets\DemoGame\Scripts\BarController.cs" />
      <Compile Include="Assets\DemoGame\Scripts\GameBoard.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\GameSpeech.cs" />
      <Compile Include="Assets\DemoGame\Scripts\GameplayController.cs" />
      <Compile Include="Assets\DemoGame\Scripts\ResourceController.cs" />
      <Compile Include="Assets\DemoGame\Scripts\TowerController.cs" />

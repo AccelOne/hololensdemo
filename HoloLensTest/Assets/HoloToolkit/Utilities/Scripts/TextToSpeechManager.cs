@@ -8,6 +8,7 @@ using Windows.Foundation;
 using Windows.Media.SpeechSynthesis;
 using Windows.Storage.Streams;
 using System.Threading.Tasks;
+using System.Linq;
 #endif
 
 namespace HoloToolkit.Unity
@@ -324,5 +325,20 @@ namespace HoloToolkit.Unity
             LogSpeech(text);
             #endif
         }
+
+		public void ChangeVoice (bool def) {
+			#if WINDOWS_UWP
+			if (def) {
+				synthesizer.Voice = SpeechSynthesizer.DefaultVoice;
+			} else {
+				var list = from a in SpeechSynthesizer.AllVoices
+				           where a.Language.Contains ("en")
+				           select a;
+				if (list.Count () > 0) {
+					synthesizer.Voice = list.Last ();
+				}
+			}
+			#endif
+		}
     }
 }

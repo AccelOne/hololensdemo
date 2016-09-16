@@ -4,34 +4,49 @@ using HoloToolkit.Unity;
 
 public class GameBoard : MonoBehaviour {
 
-	public static float scale = 1;
+	public static float scale = 0.1f;
 	public static bool placing = false;
 
 	float height = 0;
 
+	void Start () {
+		Medium ();
+		placing = false;
+	}
+
 	//preset sizes
 	public void Small () {
-		scale = 0.1f;
+		scale = 0.05f;
 		transform.localScale = Vector3.one * scale;
 	}
 	public void Medium () {
-		scale = 1;
+		scale = 0.1f;
 		transform.localScale = Vector3.one * scale;
 	}
 	public void Big () {
-		scale = 3.0f;
+		scale = 0.5f;
 		transform.localScale = Vector3.one * scale;
 	}
 
 	//manual size
 	public void IncreaseSize () {
-		scale += 0.1f;
+		if (scale >= 0.1f) {
+			scale += 0.1f;
+		} else {
+			scale += 0.01f;
+		}
 		transform.localScale = Vector3.one * scale;
 	}
 	public void DecreaseSize () {
-		scale -= 0.1f;
+
 		if (scale <= 0.1f) {
-			scale = 0.1f;
+			scale -= 0.01f;
+		} else {
+			scale -= 0.1f;
+		}
+
+		if (scale <= 0.01f) {
+			scale = 0.01f;
 		}
 		transform.localScale = Vector3.one * scale;
 	}

@@ -13,8 +13,8 @@ public class UnitController : MonoBehaviour {
 	public float viewRange= 0.9f;
 	public float attackRange = 0.2f;
 
-	private float health = 5;
-	private float damage = 1;
+	public float health = 5;
+	public float damage = 1;
 	private int order = -1;
 	private Animator anim;
 	public Transform mainTarget = null;
@@ -214,10 +214,10 @@ public class UnitController : MonoBehaviour {
 		Vector3 direction = position - transform.position;
 		direction.y = 0;
 
-		if (direction.magnitude < 0.1f)
+		/*if (direction.magnitude < 0.1f)
 		{
 			return direction;
-		}
+		}*/
 
 		// rotate towards target
 		transform.rotation = Quaternion.Slerp (transform.rotation, Quaternion.LookRotation(direction), rotSpeed * Time.smoothDeltaTime);

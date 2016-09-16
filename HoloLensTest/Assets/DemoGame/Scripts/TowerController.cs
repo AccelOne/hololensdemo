@@ -20,6 +20,12 @@ public class TowerController : MonoBehaviour {
 	void Start () {
 		health.current = health.max = 100;
 		resources.current = resources.max = 100;
+
+		#if !UNITY_EDITOR
+		if (gameObject.tag == "PlayerTower") {
+			autoPilot = false;
+		}
+		#endif
 	}
 	
 	// Update is called once per frame
