@@ -15,19 +15,25 @@ public class UnitController : MonoBehaviour {
 
 	public float health = 5;
 	public float damage = 1;
-	private int order = -1;
-	private Animator anim;
+	public GameObject actions;
+	public AudioSource audioSrc;
+	public AudioClip attackSnd;
+	public AudioClip collectSnd;
 	public Transform mainTarget = null;
 	public Transform target = null;
+	private int order = -1;
+	private Animator anim;
 	private GameObject myTower;
 	private GameObject enemyTower;
 	private ResourceController curResource = null;
+	private float originalSoundMaxDistance;
 
 	public enum UnitState {none, idle, walk, attack, dead};
 	public UnitState state = UnitState.idle;
 
 	// Use this for initialization
 	void Start () {
+		originalSoundMaxDistance = audioSrc.maxDistance;
 		anim = gameObject.GetComponentInChildren<Animator> ();
 		anim.Play ("idle");
 		GetTowers ();
@@ -45,6 +51,8 @@ public class UnitController : MonoBehaviour {
 		if (!GameplayController.CanUpdate()) {
 			return;
 		}
+
+		audioSrc.maxDistance = originalSoundMaxDistance * GameBoard.scale;
 
 		//check for near enemies while target is the main target
 		if (target == mainTarget) {
@@ -118,7 +126,13 @@ public class UnitController : MonoBehaviour {
 		timer += Time.deltaTime;
 		if (timer >= 0.9f) {
 			target.SendMessage("ModifyHealth",-damage);
-			target.SendMessage("ExtractResource",myTower,SendMessageOptions.DontRequireReceiver);
+			if (target.gameObject.tag == "Resource") {
+				target.SendMessage ("ExtractResource", myTower, SendMessageOptions.DontRequireReceiver);
+				audioSrc.PlayOneShot (collectSnd);
+			} else {
+				audioSrc.PlayOneShot (attackSnd);
+			}
+
 			timer = 0;
 		}
 	}
@@ -140,6 +154,8 @@ public class UnitController : MonoBehaviour {
 			target = mainTarget = null;
 			order = -1;
 		}
+		showActions = false;
+		actions.SetActive (showActions);
 	}
 
 	Transform GetClosestResource ()
@@ -234,6 +250,14 @@ public class UnitController : MonoBehaviour {
 			if (health <= 0) {
 				state = UnitState.dead;
 			}
+		}
+	}
+
+	private bool showActions = false;
+	void OnSelect () {
+		if (!enemy) {
+			showActions = !showActions;
+			actions.SetActive (showActions);
 		}
 	}
 }

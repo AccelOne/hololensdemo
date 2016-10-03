@@ -7,11 +7,15 @@ public class GameBoard : MonoBehaviour {
 	public static float scale = 0.1f;
 	public static bool placing = false;
 
+	public AudioSource musicSrc;
+
+	private float originalSoundMaxDistance;
 	float height = 0;
 
 	void Start () {
 		Medium ();
 		placing = false;
+		originalSoundMaxDistance = musicSrc.maxDistance;
 	}
 
 	//preset sizes
@@ -85,6 +89,8 @@ public class GameBoard : MonoBehaviour {
 	
 	void Update()
 	{
+		musicSrc.maxDistance = originalSoundMaxDistance * GameBoard.scale;
+
 		// If the user is in placing mode,
 		// update the placement to match the user's gaze.
 

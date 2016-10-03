@@ -95,7 +95,9 @@ public class TowerController : MonoBehaviour {
 		if (autoPilot) {
 			timer += Time.deltaTime;
 			if (timer >= 2) {
-				Spawn ();
+				if (Random.value > 0.5f) {
+					Spawn ();
+				}
 				timer = 0;
 			}
 		}

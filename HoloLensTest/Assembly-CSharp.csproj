@@ -61,7 +61,9 @@
      <Compile Include="Assets\DemoCharacter\Scripts\TextToSpeechTest.cs" />
      <Compile Include="Assets\DemoCharacter\Scripts\WorldController.cs" />
      <Compile Include="Assets\DemoGame\ParticlesHelper\ParticleScaling.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\ActionByGesture.cs" />
      <Compile Include="Assets\DemoGame\Scripts\BarController.cs" />
+     <Compile Include="Assets\DemoGame\Scripts\CameraFacing.cs" />
      <Compile Include="Assets\DemoGame\Scripts\GameBoard.cs" />
      <Compile Include="Assets\DemoGame\Scripts\GameSpeech.cs" />
      <Compile Include="Assets\DemoGame\Scripts\GameplayController.cs" />
