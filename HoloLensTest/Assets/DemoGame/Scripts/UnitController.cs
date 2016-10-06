@@ -60,10 +60,10 @@ public class UnitController : MonoBehaviour {
 		}
 
 		//enemy killed look for new target
-		if (target == null && (order == DEFEND || order == ATTACK)) {
+		/*if (target == null && (order == DEFEND || order == ATTACK)) {
 			state = UnitState.idle;
 			target = CheckForEnemies ();
-		}
+		}*/
 
 		//resource is empty, look for a new one
 		if (curResource != null && curResource.health <= 0 && order == COLLECT) {
@@ -75,7 +75,6 @@ public class UnitController : MonoBehaviour {
 		if (target == null) {
 			target = mainTarget;
 			state = UnitState.idle;
-			return;
 		}
 
 		switch (state) {
@@ -121,6 +120,8 @@ public class UnitController : MonoBehaviour {
 			timer = 0;
 			return;
 		}
+
+		RotateTowards (target.position);
 
 		anim.Play ("attack");
 		timer += Time.deltaTime;

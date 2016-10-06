@@ -89,7 +89,7 @@ public class GameBoard : MonoBehaviour {
 	
 	void Update()
 	{
-		musicSrc.maxDistance = originalSoundMaxDistance * GameBoard.scale;
+		//musicSrc.maxDistance = originalSoundMaxDistance * GameBoard.scale;
 
 		// If the user is in placing mode,
 		// update the placement to match the user's gaze.

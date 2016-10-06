@@ -102,4 +102,11 @@ public class TowerController : MonoBehaviour {
 			}
 		}
 	}
+
+	void OnSelect () {
+		if (gameObject.tag == "PlayerTower") {
+			Spawn ();
+			timer = 0;
+		}
+	}
 }
